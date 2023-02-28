@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 public class Program
 {
@@ -10,7 +10,7 @@ public class Program
         Student dima = new Student("Dima", 15, new int[] { 2, 5, 3, 2, 4 });
         Student nikita = new Student("Nikita", 15, new int[] { 3, 3, 3, 3, 3 });
         Student bob = new Student("Bob", 15, new int[] { 5, 5, 5, 5, 5 });
-        Student tom = new Student("Tom", 15, new int[] { 2, 5, 3, 3, 4 });
+        Student tom = new Student("Tom", 15, new int[] { 2, 2, 3, 3, 4 });
         Student steve = new Student("Steve", 15, new int[] { 5, 5, 2, 4, 4 });
         Student anton = new Student("Anton", 15, new int[] { 5, 5, 3, 3, 3 });
 
@@ -24,18 +24,15 @@ public class Program
 
         for(int i = 0; i < students.Length; i++)
         {
-            bool letsGo = true;
-            while (letsGo)
+            for(int k = 0; k < estimation.Length; k++)
             {
-                for(int k = 0; k < estimation.Length; k++)
+                if (estimation[i] == students[k].grade.Sum())
                 {
-                    if (estimation[i] == students[k].grade.Sum())
-                    {
-                        newStudents[i] = students[k];
-                        letsGo = false;
-                    }
+                    newStudents[i] = students[k];
+                    break;
                 }
             }
+            
         }
 
         Console.WriteLine(ArrayToString(newStudents));
